@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ITipoApunte } from '../../../model/tipoapunte.interface';
+import { ITipoapunte } from '../../../model/tipoapunte.interface';
 import { TipoApunteService } from '../../../service/tipoapunte.service';
 
 @Component({
@@ -11,11 +11,7 @@ import { TipoApunteService } from '../../../service/tipoapunte.service';
 export class TipoApunteAdminViewRoutedComponent implements OnInit {
   id: number = 0;
   route: string = '';
-  oTipoApunte: ITipoApunte = {
-    id: 0,
-    descripcion: '',
-    comentarios: '',
-  };
+  oTipoApunte: ITipoapunte = {} as ITipoapunte;
   constructor(
     private oActivatedRoute: ActivatedRoute,
     private oTipoApunteService: TipoApunteService
@@ -27,7 +23,7 @@ export class TipoApunteAdminViewRoutedComponent implements OnInit {
   }
 getOne() {
     this.oTipoApunteService.getOne(this.id).subscribe({
-      next: (data: ITipoApunte) => {
+      next: (data: ITipoapunte) => {
         this.oTipoApunte = data;
       },
     });

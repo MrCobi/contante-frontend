@@ -1,7 +1,11 @@
+import { ICuenta } from "./cuenta.interface";
+
 export interface ISubcuenta{
     id : number;
     codigo : number;
     descripcion : string;
-    id_cuenta : number;
+    cuenta : ICuenta;
     momentstamp : Date;
+    apuntes: number;
+    gruposubcuentas: number;
 }
